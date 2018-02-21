@@ -4,7 +4,6 @@ class Users extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInput: props.username || '',
       toggleInput: true
     }
   }
@@ -16,33 +15,35 @@ class Users extends React.Component {
         {!this.state.toggleInput ?
           <span
             onClick={() => {
-              console.log('ow');
+              console.log(`ow! bye ${this.props.username}`);
               this.setState({toggleInput: true})
             }}>
-            {this.state.userInput}
+            {this.props.username}
           </span>
           :
           <input
+            autoFocus
             type="text"
-            placeholder={this.state.userInput || "name"}
+            placeholder={this.props.username || "name"}
             value={this.state.input}
             // onClick={() => {
-            //   this.props.handleName(this.state.userInput)
+            //   this.this.props.handleName(this.props.username)
             // }}
 
             // onChange={(event) => {
             //   this.setState({
-            //     userInput: event.target.value
+            //     username: event.target.value
             //   })
             // }}
             onKeyUp={event => {
               if (event.keyCode === 13) {
+                this.props.handleName(event.target.value)
                 this.setState({
-                  userInput: event.target.value,
                   toggleInput: false
                 })
-                // userInput: event.target.value
-                console.log('enter')
+                // username: event.target.value
+                // is setState async yo?
+                // console.log(`hi, ${this.props.username}`)
               }
             }}
           />
