@@ -19,11 +19,11 @@ const PlaceItem = ({place, deletePlace}) => {
   return (
     <div className="place">
       <div className = "col-sm-6" style={{textAlign: 'center'}} >
-          {/* <label
-            onMouseOver={}
-            onClick={() => {
-              deletePlace(place)
-            }}>{place.name}</label> */}
+        <label
+          onClick={() => {
+            deletePlace(place)
+          }}>{place.name}</label>
+
         <div>
           <ReactAnimatedWeather
             icon={defaults[place.weather.current.icon] || 'SLEET'}
