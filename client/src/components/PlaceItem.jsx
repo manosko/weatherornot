@@ -3,9 +3,6 @@ import Skycons from 'skycons'
 import ReactAnimatedWeather from 'react-animated-weather';
 
 const PlaceItem = ({place, deletePlace}) => {
-  // console.log("SKYCONS:", Skycons);
-  // console.log("sky:", sky.prototype);
-  // sky.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
   const defaults = {
     'clear-day': 'CLEAR_DAY',
     'clear-night': 'CLEAR_NIGHT',
@@ -19,22 +16,25 @@ const PlaceItem = ({place, deletePlace}) => {
     'FOG': 'fog'
   }
 
-    return (
-      <div
-        className="place"
-        onClick={() => {
-          deletePlace(place)
-        }}
-        >
+  return (
+    <div className="place">
+      <div className = "col-sm-6" style={{textAlign: 'center'}} >
+          {/* <label
+            onMouseOver={}
+            onClick={() => {
+              deletePlace(place)
+            }}>{place.name}</label> */}
+        <div>
           <ReactAnimatedWeather
             icon={defaults[place.weather.current.icon] || 'SLEET'}
             color={'black'}
             size={64}
             animate={true}
           />
-          <label>{place.name}</label>
         </div>
-      )
+      </div>
+    </div>
+  )
 
 };
 

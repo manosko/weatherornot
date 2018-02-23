@@ -93,9 +93,9 @@ class Places extends React.Component {
                 onChange={(e) => { this.onChange(e); }}
                 onDropdownSelect={(e) => { this.onDropdownSelect(e); }}
               />
-              <button type="submit">Submit</button>
+              <button style={{backgroundColor:'rgb(0, 148, 255)', fontWeight: 500, borderRadius: '7px'}} type="submit">Submit</button>
             </form>
-            : <button onClick={(e)=>this.toggleAddPlace(e.target.innerText)}>Work</button>}
+            : <button style={{backgroundColor:'rgb(0, 148, 255)', fontWeight: 500, borderRadius: '7px', marginLeft: '1%', marginTop: '10px'}}  onClick={(e)=>this.toggleAddPlace(e.target.innerText)}>Work</button>}
         </div>
       );
     } else if (!home && work) {
@@ -111,9 +111,9 @@ class Places extends React.Component {
                 onChange={(e) => { this.onChange(e); }}
                 onDropdownSelect={(e) => { this.onDropdownSelect(e); }}
               />
-              <button type="submit">Submit</button>
+              <button  style={{backgroundColor:'rgb(0, 148, 255)', fontWeight: 500, borderRadius: '7px'}} type="submit">Submit</button>
             </form>
-            : <button onClick={(e)=>this.toggleAddPlace(e.target.innerText)}>Home</button>}
+            : <button style={{backgroundColor:'rgb(0, 148, 255)', fontWeight: 500, borderRadius: '7px', marginLeft: '1%', marginTop: '10px'}} onClick={(e)=>this.toggleAddPlace(e.target.innerText)}>Home</button>}
           <PlaceItem key={work.id} place={work} deletePlace={() => this.props.deletePlace(work)} />
         </div>
       );
@@ -130,9 +130,9 @@ class Places extends React.Component {
             onChange={(e) => { this.onChange(e); }}
             onDropdownSelect={(e) => { this.onDropdownSelect(e); }}
           />
-          <button type="submit">Submit</button>
+          <button  style={{backgroundColor:'rgb(0, 148, 255)', fontWeight: 500, borderRadius: '7px'}}  type="submit">Submit</button>
         </form>
-        : <button onClick={(e)=>this.toggleAddPlace(e.target.innerText)}>Home</button>}
+        : <button style={{backgroundColor: 'rgb(0, 148, 255)', fontWeight: 500, borderRadius: '7px', marginLeft: '1%', marginTop: '10px'}} onClick={(e)=>this.toggleAddPlace(e.target.innerText)}>Home</button>}
       {this.state.showAddWork ?
         <form onSubmit={e => this.search(e, 'work')}>
           <LocationAutocomplete
@@ -143,13 +143,12 @@ class Places extends React.Component {
             onChange={(e) => { this.onChange(e); }}
             onDropdownSelect={(e) => { this.onDropdownSelect(e); }}
           />
-          <button type="submit">Submit</button>
+          <button  style={{backgroundColor:'rgb(0, 148, 255)', fontWeight: 500, borderRadius: '7px'}}  type="submit">Submit</button>
         </form>
-        : <button onClick={(e)=>this.toggleAddPlace(e.target.innerText)}>Work</button>}
+        : <button style={{backgroundColor:'rgb(0, 148, 255)', fontWeight: 500, borderRadius: '7px', marginLeft: '1%', marginTop: '10px'}}  onClick={(e)=>this.toggleAddPlace(e.target.innerText)}>Work</button>}
     </div>
     );
   }
 }
 
 export default Places;
-

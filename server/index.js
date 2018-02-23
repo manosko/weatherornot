@@ -109,10 +109,6 @@ app.get('/commutes', (req, res) => {
 });
 
 app.delete('/commutes', (req, res) => {
-  // const placeId = req.query.commute.id;
-  console.log('manosthe grape god',req.query.commuteId.id)
-  // console.log(req.query)
-  // console.log(req)
   const commuteId = JSON.parse(req.query.commuteId).id;
   db.query(`DELETE FROM commutes WHERE id="${commuteId}"`, (err) => {
     if (err) {
@@ -142,9 +138,6 @@ app.post('/places', (req, res) => {
     username,
   } = req.body;
 
-  // console.log('server recieved username: ', username);
-
-  console.log('POST place');
   db.query(`SELECT * FROM places WHERE name="${placeType}" AND username=(SELECT username FROM users WHERE id="${username}");`, (err, result) => {
     if (err) {
       console.log(err)
@@ -153,14 +146,11 @@ app.post('/places', (req, res) => {
     }
 
     if (result.length) {
-      console.log('place exists with that name for the user', username);
       res.status(200).send('place already exists');
       return;
     }
 
     geocoder.find(address, (err, geoData) => {
-      console.log('geocoder works');
-
       if (err) {
         res.status(200).send('Sorry, the address you submitted is not valid');
         return;
@@ -211,7 +201,6 @@ app.get('/places', (req, res) => {
 
 app.delete('/places', (req, res) => {
   const placeId = JSON.parse(req.query.place).id
-  console.log('deleteplaces thing: ', placeId);
   // find all commutes that contain this place and delete them
   db.query(`DELETE FROM commutes WHERE origin=${placeId} OR destination=${placeId}`, (err) => {
     if (err) {

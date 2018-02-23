@@ -147,12 +147,14 @@ class App extends React.Component {
   }
 
   render() {
+    var image = 'https://industries.basf.com/images/north-america/USA/Industry/Agriculture/Crop%20Protection/US%20Crop%20Products/Headline_%20AMP_corn_Stock_Getty_176693544_RF_ULS.jpg/_jcr_content/renditions/cq5dam.web.banner_overview.banner_12.jpg'
     return (
     <MuiThemeProvider>
-      <div>
-        <h1>WeatherOrNot</h1>
+      <div >
+        <div className="jumbotron text-center" style={{backgroundImage : `url(${image})`, fontFamily: 'sans-serif'}}>
+        <h1 >WeatherOrNot</h1>
+        </div>
         <Status commutes={this.state.commutes} places={this.state.places} />
-        <h1>User...</h1>
         <Users
           handleName={this.handleName}
           username={this.state.username}
